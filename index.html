@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio of a Frontend Developer">
+    <title>Shreya Mahato | Frontend Developer</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Decoration -->
+    <div class="background-decor">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="code-symbol symbol-1">&lt;/&gt;</div>
+        <div class="code-symbol symbol-2">{ }</div>
+        <div class="code-symbol symbol-3">#</div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#hero" class="logo">Shreya.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Dark/Light toggle could go here, but keeping it simple for now -->
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <h1 class="hero-name reveal">
+                <span class="tech-tag">&lt;</span> SHREYA MAHATO <span class="tech-tag">/&gt;</span><span
+                    class="cursor">_</span>
+            </h1>
+            <h2 class="hero-role reveal reveal-delay-1">BCA Student at Kristu Jayanti (Deemed to be University),
+                Bengaluru</h2>
+            <p class="hero-intro reveal reveal-delay-2">Creating visually stunning and user-friendly web experiences.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="about-content reveal reveal-delay-1">
+                <p>
+                    As a beginner in web development, I focus on learning the fundamentals of HTML, CSS, and JavaScript.
+                    I enjoy exploring how websites work, solving problems through code, and continuously improving my
+                    skills through practice and hands-on projects.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title reveal">My Skills (Beginner Level)</h2>
+            <div class="skills-grid reveal reveal-delay-1">
+
+
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript (Basics)</h3>
+                    <p>DOM Manipulation</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🧩</div>
+                    <h3>Problem Solving</h3>
+                    <p>Debugging & Logic</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Continuous Learning</h3>
+                    <p>New Technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title reveal">Get In Touch</h2>
+            <form class="contact-form reveal reveal-delay-1" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <p>Email: <a href="mailto:25BCAE62@kristujayanti.com">25BCAE62@kristujayanti.com</a></p>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Shreya Mahato. All Rights Reserved.</p>
+    </footer>
+
+    
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
