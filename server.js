@@ -1,54 +1,71 @@
-const http = require('http');
-const fs = require('fs');
+// 1. IMPORTS
+const express = require('express');
+const mysql = require('mysql2');
+const cors = require('cors');
 const path = require('path');
+require('dotenv').config();
 
-const port = 8000;
+// 2. APP SETUP
+const app = express();
+const PORT = process.env.PORT8000;
 
-const server = http.createServer((req, res) => {
-    let filePath = '.' + req.url;
-    if (filePath === './' || filePath === '.') {
-        filePath = './index.html';
+// 3. MIDDLEWARE (VERY IMPORTANT)
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname)));
+
+// 4. DATABASE CONNECTION
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'kju@database', // put your MySQL password if any
+    database: 'portfolio'
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Database connection failed:', err);
+    } else {
+        console.log('Connected to MySQL');
     }
+});
+// 🔥 6. ADD THIS ALSO (IMPORTANT)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-    const extname = String(path.extname(filePath)).toLowerCase();
-    const mimeTypes = {
-        '.html': 'text/html',
-        '.js': 'text/javascript',
-        '.css': 'text/css',
-        '.json': 'application/json',
-        '.png': 'image/png',
-        '.jpg': 'image/jpg',
-        '.gif': 'image/gif',
-        '.svg': 'image/svg+xml',
-        '.wav': 'audio/wav',
-        '.mp4': 'video/mp4',
-        '.woff': 'application/font-woff',
-        '.ttf': 'application/font-ttf',
-        '.eot': 'application/vnd.ms-fontobject',
-        '.otf': 'application/font-otf',
-        '.wasm': 'application/wasm'
-    };
+// 5. TEST ROUTE
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
 
-    const contentType = mimeTypes[extname] || 'application/octet-stream';
+// 6. CONTACT FORM API
+app.post('/api/contact', (req, res) => {
+    console.log("DATA:", req.body); // 👈 DEBUG (keep this for now)
 
-    fs.readFile(filePath, (error, content) => {
-        if (error) {
-            if (error.code === 'ENOENT') {
-                fs.readFile('./404.html', (error, content) => {
-                    res.writeHead(404, { 'Content-Type': 'text/html' });
-                    res.end(content || '404 Not Found', 'utf-8');
-                });
-            } else {
-                res.writeHead(500);
-                res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-            }
-        } else {
-            res.writeHead(200, { 'Content-Type': contentType });
-            res.end(content, 'utf-8');
+    const { name, email, message } = req.body;
+
+    const sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";
+
+    db.query(sql, [name, email, message], (err, result) => {
+        if (err) {
+            console.error("❌ FULL ERROR:", err);   // 👈 VERY IMPORTANT
+            return res.status(500).json({
+                success: false,
+                error: err.message                  // 👈 send error to browser
+            });
         }
+
+        res.status(200).json({
+            success: true,
+            message: "Message saved successfully!"
+        });
     });
 });
 
-server.listen(port, () => {
-    console.log(`Server running at http://127.0.0.1:${port}/`);
+// 7. START SERVER
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

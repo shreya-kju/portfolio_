@@ -1,35 +1,3 @@
-// ===============================
-// Firebase SDK Imports
-// ===============================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
-
-// ===============================
-//  Firebase Configuration
-// ===============================
-const firebaseConfig = {
-  apiKey: "AIzaSyD5VrJTj9bQk2AqMP_pYQSnEtnP9atv0jc",
-  authDomain: "portfolio-website-52413.firebaseapp.com",
-  projectId: "portfolio-website-52413",
-  storageBucket: "portfolio-website-52413.firebasestorage.app",
-  messagingSenderId: "279977113272",
-  appId: "1:279977113272:web:4d616b15376ac1ccbda64d",
-  measurementId: "G-B86B1W6DE0"
-};
-
-// ===============================
-//  Initialize Firebase
-// ===============================
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
-
-console.log("Firebase connected successfully");
-
-// ===============================
-//  DOM Content Loaded
-// ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===============================
@@ -74,33 +42,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===============================
-  //  Contact Form → Firestore
-  // ===============================
+  // ==============================
+  // Contact Form → MySQL (via Server)
+  // ==============================
+
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const name = contactForm.querySelector("#name").value;
-      const email = contactForm.querySelector("#email").value;
-      const message = contactForm.querySelector("#message").value;
+      const name = contactForm.querySelector("#name").value.trim();
+      const email = contactForm.querySelector("#email").value.trim();
+      const message = contactForm.querySelector("#message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill all fields");
+        return;
+      }
 
       try {
-        await addDoc(collection(db, "contacts"), {
-          name,
-          email,
-          message,
-          timestamp: new Date()
+        const response = await fetch("http://localhost:8000/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json" // 🔥 IMPORTANT
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message
+          })
         });
 
-        alert("Message sent successfully!");
-        contactForm.reset();
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Message sent successfully! ✅");
+          contactForm.reset();
+        } else {
+          alert("Something went wrong. Please try again ❌");
+        }
 
       } catch (error) {
-        console.error("Error saving message:", error);
-        alert("Something went wrong. Please try again.");
+        console.error("Error:", error);
+        alert("Server error ⚠️");
       }
     });
   }

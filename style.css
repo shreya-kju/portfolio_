@@ -355,6 +355,37 @@ ul {
     line-height: 1.8;
 }
 
+/* Certifications & Achievements Section */
+.bullet-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.bullet-list li {
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--text-color);
+}
+
+.bullet-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.bullet-list li:last-child {
+    margin-bottom: 0;
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
