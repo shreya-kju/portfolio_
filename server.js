@@ -10,12 +10,7 @@ const app = express();
 
 
 // 3. MIDDLEWARE (VERY IMPORTANT)
-app.use(cors({
-    origin: "*",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"]
-}));
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,7 +25,7 @@ const db = mysql.createConnection({
     user: DB_USER,
     password: DB_PASSWORD, // put your MySQL password if any
     database: DB_NAME,
-    port: process.env.PORT
+    port: 3306
 });
 
 db.connect((err) => {
