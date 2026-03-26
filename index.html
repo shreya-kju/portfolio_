@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -31,32 +34,29 @@
     </header>
 
     <main>
-        <section id="hero" style="background-image: url('hero.png');">
-            <div class="hero-overlay"></div>
+        <section id="hero" class="hero-section">
             <div class="container hero-content">
-                <h2 class="fade-in">Hi, I'm <span class="highlight">Shreya Mahato</span></h2>
-                <h1 class="fade-in-delayed">Student & <br>Aspiring Web Developer</h1>
-                <p class="fade-in-delayed-2">I build digital experiences with passion and code.</p>
-                <div class="hero-btns fade-in-delayed-3">
-                    <a href="#projects" class="btn primary">View My Work</a>
-                    <a href="#contact" class="btn secondary">Get In Touch</a>
+                <h2 class="hero-name reveal">Hi, I'm <span class="highlight">Shreya Mahato</span><span class="cursor"></span></h2>
+                <h1 class="hero-role reveal reveal-delay-1">Student & Aspiring Web Developer</h1>
+                <p class="hero-intro reveal reveal-delay-2">I build digital experiences with passion and code. Focused on creating functional and beautiful web applications.</p>
+                <div class="hero-btns reveal reveal-delay-3">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am Shreya Mahato, a passionate and motivated student with a strong interest in web development and technology. I enjoy learning new skills and exploring how websites and applications are built.</p>
-                    <p>I am currently pursuing my studies and continuously improving my knowledge in programming languages such as HTML, CSS, JavaScript, and basic backend technologies. I like working on projects that help me understand real-world applications of coding.</p>
-                    <p>I have a keen interest in designing user-friendly websites and creating responsive web pages. I enjoy solving problems, learning new tools, and experimenting with creative ideas.</p>
-                    <p>Apart from academics, I am interested in technology trends, creative design, and improving my technical skills. I believe in continuous learning and self-improvement. My goal is to become a skilled web developer and work on innovative projects that make a positive impact.</p>
-                    <div class="interests">
-                        <h3>Interests</h3>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-card reveal">
+                        <h3><i class="fas fa-user"></i> Who I Am</h3>
+                        <p>I am Shreya Mahato, a passionate and motivated student with a strong interest in web development. I enjoy learning new skills and exploring how websites and applications are built.</p>
+                        <p>I am currently pursuing my studies and continuously improving my knowledge in programming languages such as HTML, CSS, JavaScript, and basic backend technologies.</p>
+                    </div>
+                    <div class="about-card reveal reveal-delay-1">
+                        <h3><i class="fas fa-star"></i> Interests</h3>
                         <div class="interest-tags">
                             <span>IoT</span>
                             <span>Edge Computing</span>
@@ -65,133 +65,163 @@
                             <span>Creative Design</span>
                         </div>
                     </div>
-                </div>
-                <div class="about-goals">
-                    <h3>Career Goals</h3>
-                    <p>My primary goal is to become a skilled Web Developer and work on innovative projects that make a positive impact. I aspire to build scalable, high-performance applications that solve real-world problems while staying at the forefront of digital innovation.</p>
+                    <div class="about-card reveal reveal-delay-2">
+                        <h3><i class="fas fa-bullseye"></i> Career Goals</h3>
+                        <p>My goal is to become a skilled Web Developer and work on innovative projects that make a positive impact. I aspire to build scalable, high-performance applications that solve real-world problems.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="bg-alt">
+        <section id="education" class="section bg-alt">
             <div class="container">
-                <div class="section-header">
-                    <h2>Education</h2>
-                    <div class="underline"></div>
-                </div>
+                <h2 class="section-title">Education</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-card reveal">
+                        <div class="timeline-marker"></div>
                         <div class="timeline-date">2025 - 2028</div>
                         <div class="timeline-content">
                             <h3>Bachelor of Computer Applications (BCA)</h3>
-                            <p>Kristu Jayanti University</p>
-                            <p>CGPA: 9.3</p>
+                            <p class="institution">Kristu Jayanti University</p>
+                            <p class="grade">CGPA: 9.3 (Semester 1)</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-card reveal reveal-delay-1">
+                        <div class="timeline-marker"></div>
                         <div class="timeline-date">2024 - 2025</div>
                         <div class="timeline-content">
-                            <h3>12th Grade</h3>
-                            <p>Vidya Bharati Chinmaya Vidyalaya (VBCV)</p>
-                            <p>Score: 83%</p>
+                            <h3>Class XII</h3>
+                            <p class="institution">Vidya Bharati Chinmaya Vidyalaya</p>
+                            <p class="grade">Score: 83%</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-card reveal reveal-delay-2">
+                        <div class="timeline-marker"></div>
                         <div class="timeline-date">2024</div>
                         <div class="timeline-content">
-                            <h3>10th Grade</h3>
-                            <p>Gulmohur High School</p>
-                            <p>Score: 89.75%</p>
+                            <h3>Class X</h3>
+                            <p class="institution">Gulmohur High School</p>
+                            <p class="grade">Score: 89.75%</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="container">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category card">
-                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
-                    <ul>
-                        <li>HTML5 / CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>Database Management (SQL)</li>
-                        <li>Basic Backend Technologies</li>
-                    </ul>
-                </div>
-                <div class="skill-category card">
-                    <h3><i class="fas fa-tools"></i> Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>Visual Studio Code</li>
-                        <li>MongoDB</li>
-                        <li>Digital Engineering Tools</li>
-                    </ul>
-                </div>
-                <div class="skill-category card">
-                    <h3><i class="fas fa-user-friends"></i> Soft Skills</h3>
-                    <ul>
-                        <li>Problem Solving</li>
-                        <li>Team Collaboration</li>
-                        <li>Communication</li>
-                        <li>Quick Learner</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="certifications" class="container">
-            <div class="section-header">
-                <h2>Certifications</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="cert-list">
-                <div class="cert-item card">
-                    <span>Digital Engineering Certification</span>
-                </div>
-                <div class="cert-item card">
-                    <span>MongoDB Essentials</span>
-                </div>
-                <div class="cert-item card">
-                    <span>Git & GitHub Masterclass</span>
-                </div>
-                <div class="cert-item card">
-                    <span>IoT & Edge Computing Workshop</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="bg-alt">
+        <section id="skills" class="section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Get In Touch</h2>
-                    <div class="underline"></div>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card reveal">
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <h3>Frontend</h3>
+                        <ul class="bullet-list">
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card reveal reveal-delay-1">
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>Database</h3>
+                        <ul class="bullet-list">
+                            <li>SQL / MySQL</li>
+                            <li>MongoDB Essentials</li>
+                            <li>DBMS Fundamentals</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card reveal reveal-delay-2">
+                        <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Tools & Others</h3>
+                        <ul class="bullet-list">
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>IoT & Edge Computing</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>Feel free to reach out for collaborations or just a friendly hello!</p>
-                        <div class="contact-details">
-                            <div class="detail-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>25bcae62@kristujayanti.com</span>
-                            </div>
-                            <div class="social-links">
-                                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </section>
+
+        <section id="projects" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-info">
+                            <h3 class="project-title">Personal Portfolio</h3>
+                            <p class="project-desc">A modern, responsive portfolio website built with HTML, CSS, and JS to showcase my academic journey and skills.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                        <button type="submit" class="btn primary">Send Message</button>
+                    <div class="project-card reveal reveal-delay-1">
+                        <div class="project-info">
+                            <h3 class="project-title">Student Management System</h3>
+                            <p class="project-desc">A basic backend-focused project to manage student records using SQL databases.</p>
+                            <div class="project-tags">
+                                <span class="tag">SQL</span>
+                                <span class="tag">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card reveal">
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>Digital Engineering</h3>
+                        <p>Foundation for modern engineering practices.</p>
+                    </div>
+                    <div class="cert-card reveal reveal-delay-1">
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>MongoDB Essentials</h3>
+                        <p>NoSQL database management and modeling.</p>
+                    </div>
+                    <div class="cert-card reveal reveal-delay-2">
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>IoT & Edge Workshop</h3>
+                        <p>Exploring the future of connected devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info reveal">
+                        <h3>Let's Connect</h3>
+                        <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+                        <ul class="contact-details">
+                            <li><i class="fas fa-envelope"></i> 25bcae62@kristujayanti.com</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <form id="contactForm" class="contact-form reveal reveal-delay-1">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -206,4 +236,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
