@@ -1,3 +1,5 @@
+console.log("JS is connected");
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===============================
@@ -16,8 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Close menu when link clicked
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navLinks.classList.remove("active");
+      if (hamburger && navLinks) {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      }
     });
   });
 
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==============================
-  // Contact Form → MySQL (via Server)
+  // Contact Form → Backend (Render)
   // ==============================
 
   const contactForm = document.getElementById("contactForm");
@@ -52,40 +56,37 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const name = contactForm.querySelector("#name").value.trim();
-      const email = contactForm.querySelector("#email").value.trim();
-      const message = contactForm.querySelector("#message").value.trim();
+      console.log("Form submitted");
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
       if (!name || !email || !message) {
         alert("Please fill all fields");
         return;
       }
-
       try {
-        const response = await fetch("http://localhost:8000/api/contact", {
+        const response = await fetch("https://portfolio-1-vs9s.onrender.com/api/contact", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json" // 🔥 IMPORTANT
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            message: message
-          })
+          body: JSON.stringify({ name, email, message })
         });
 
-        const data = await response.json();
+        console.log("Response status:", response.status);
 
-        if (data.success) {
-          alert("Message sent successfully! ✅");
-          contactForm.reset();
-        } else {
-          alert("Something went wrong. Please try again ❌");
-        }
+        const text = await response.text(); // 🔥 IMPORTANT
+        console.log("Raw response:", text);
+
+        alert("Message sent successfully! ✅");
+
+        contactForm.reset();
 
       } catch (error) {
-        console.error("Error:", error);
-        alert("Server error ⚠️");
+        console.error("Fetch error:", error);
+        alert("Error sending message ❌");
       }
     });
   }

@@ -7,21 +7,32 @@ require('dotenv').config();
 
 // 2. APP SETUP
 const app = express();
-const PORT = process.env.PORT8000;
+
 
 // 3. MIDDLEWARE (VERY IMPORTANT)
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
+app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname)));
-
+// Ensure environment variables exist
+const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, } = process.env;
+if (!DB_HOST || !DB_USER || !DB_PASSWORD || !DB_NAME) {
+    console.error("ERROR: Missing environment variables. Check DB_HOST, DB_USER, DB_PASSWORD, DB_NAME.");
+    process.exit(1);
+}
 // 4. DATABASE CONNECTION
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'kju@database', // put your MySQL password if any
-    database: 'portfolio'
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD, // put your MySQL password if any
+    database: DB_NAME,
+    port: process.env.PORT
 });
 
 db.connect((err) => {
@@ -29,6 +40,20 @@ db.connect((err) => {
         console.error('Database connection failed:', err);
     } else {
         console.log('Connected to MySQL');
+    }
+});
+db.query(`
+CREATE TABLE IF NOT EXISTS contacts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  message TEXT
+)
+`, (err) => {
+    if (err) {
+        console.log("Table creation error:", err);
+    } else {
+        console.log("Table ready ✅");
     }
 });
 // 🔥 6. ADD THIS ALSO (IMPORTANT)
@@ -43,6 +68,8 @@ app.get('/', (req, res) => {
 
 // 6. CONTACT FORM API
 app.post('/api/contact', (req, res) => {
+    console.log("Request received!");
+    console.log(req.body);
     console.log("DATA:", req.body); // 👈 DEBUG (keep this for now)
 
     const { name, email, message } = req.body;
@@ -66,6 +93,7 @@ app.post('/api/contact', (req, res) => {
 });
 
 // 7. START SERVER
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on ${PORT}`);
 });

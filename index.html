@@ -33,7 +33,6 @@
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <!-- Dark/Light toggle could go here, but keeping it simple for now -->
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -50,152 +49,112 @@
                 <span class="tech-tag">&lt;</span> SHREYA MAHATO <span class="tech-tag">/&gt;</span><span
                     class="cursor">_</span>
             </h1>
-            <h2 class="hero-role reveal reveal-delay-1">BCA Student at Kristu Jayanti (Deemed to be University),
-                Bengaluru</h2>
-            <p class="hero-intro reveal reveal-delay-2">Creating visually stunning and user-friendly web experiences.
+            <h2 class="hero-role reveal reveal-delay-1">
+                BCA Student at Kristu Jayanti (Deemed to be University), Bengaluru
+            </h2>
+            <p class="hero-intro reveal reveal-delay-2">
+                Creating visually stunning and user-friendly web experiences.
             </p>
-
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="section about-section">
         <div class="container">
             <h2 class="section-title reveal">About Me</h2>
             <div class="about-content reveal reveal-delay-1">
                 <p>
-                    As a beginner in web development, I focus on learning the fundamentals of HTML, CSS, and JavaScript.
-                    I enjoy exploring how websites work, solving problems through code, and continuously improving my
-                    skills through practice and hands-on projects.
+                    As a beginner in web development, I focus on learning HTML, CSS, and JavaScript.
+                    I enjoy building projects and improving my skills continuously.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education" class="section education-section">
         <div class="container">
             <h2 class="section-title reveal">Education</h2>
             <div class="skills-grid reveal reveal-delay-1">
+
                 <div class="skill-card">
-                    <div class="skill-icon">🎓</div>
-                    <h3>BCA (Pursuing)</h3>
-                    <p style="color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Kristu Jayanti (Deemed
-                        to be University)</p>
-                    <p>CGPA: 9.3 (Semester 1)</p>
+                    <h3>BCA</h3>
+                    <p>Kristu Jayanti University</p>
+                    <p>CGPA: 9.3</p>
                 </div>
+
                 <div class="skill-card">
-                    <div class="skill-icon">🏫</div>
                     <h3>Class XII</h3>
-                    <p style="color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Vidya Bharati Chinmaya
-                        Vidyalaya</p>
-                    <p>Percentage: 83%</p>
+                    <p>83%</p>
                 </div>
+
                 <div class="skill-card">
-                    <div class="skill-icon">🎒</div>
                     <h3>Class X</h3>
-                    <p style="color: var(--text-color); margin-bottom: 0.5rem; font-weight: 500;">Gulmohur High School
-                    </p>
-                    <p>Percentage: 89.75%</p>
+                    <p>89.75%</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="section certifications-section">
-        <div class="container">
-            <h2 class="section-title reveal">Certifications</h2>
-            <div class="about-content reveal reveal-delay-1">
-                <ul class="bullet-list">
-                    <li>Digital Engineering Certification – NASSCOM</li>
-                    <li>Learnathon Certification</li>
-                    <li>MongoDB Certification</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section achievements-section">
-        <div class="container">
-            <h2 class="section-title reveal">Achievements</h2>
-            <div class="about-content reveal reveal-delay-1">
-                <ul class="bullet-list">
-                    <li>Represented school in multiple inter-school competitions and events</li>
-                    <li>Secured 1st position in inter-school competitions</li>
-                    <li>Demonstrated strong teamwork, communication, and competitive skills</li>
-                    <li>Actively participated in academic and extracurricular activities at the school level</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="section skills-section">
         <div class="container">
-            <h2 class="section-title reveal">My Skills (Beginner Level)</h2>
+            <h2 class="section-title reveal">Skills</h2>
             <div class="skills-grid reveal reveal-delay-1">
 
-
                 <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>JavaScript (Basics)</h3>
-                    <p>DOM Manipulation</p>
+                    <h3>HTML</h3>
                 </div>
 
                 <div class="skill-card">
-                    <div class="skill-icon">🧩</div>
-                    <h3>Problem Solving</h3>
-                    <p>Debugging & Logic</p>
+                    <h3>CSS</h3>
                 </div>
+
                 <div class="skill-card">
-                    <div class="skill-icon">🚀</div>
-                    <h3>Continuous Learning</h3>
-                    <p>New Technologies</p>
+                    <h3>JavaScript</h3>
                 </div>
+
             </div>
         </div>
     </section>
 
-
-
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="section contact-section">
         <div class="container">
             <h2 class="section-title reveal">Get In Touch</h2>
-            <form class="contact-form reveal reveal-delay-1" id="contactForm">
+
+            <!-- ✅ CLEAN FORM -->
+            <form id="contactForm" class="contact-form">
+
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <label>Name</label>
+                    <input type="text" id="name" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <label>Email</label>
+                    <input type="email" id="email" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <label>Message</label>
+                    <textarea id="message" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+
+                <button type="submit">Send Message</button>
+
             </form>
 
             <div class="contact-info">
                 <p>Email: <a href="mailto:25BCAE62@kristujayanti.com">25BCAE62@kristujayanti.com</a></p>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">GitHub</a>
-                    <a href="#" target="_blank">Twitter</a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Shreya Mahato. All Rights Reserved.</p>
+    <footer>
+        <p>© 2024 Shreya Mahato</p>
     </footer>
-
 
     <script src="script.js"></script>
 
