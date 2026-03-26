@@ -21,18 +21,17 @@ console.log("env check skipped temporarily");
 
 // 4. DATABASE CONNECTION
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD, // put your MySQL password if any
-    database: process.env.DB_NAME,
+    host: "localhost",
+    user: "root",
+    password: "kju@database", // or your MySQL password
+    database: "portfolio", // make sure this exists
     port: 3306
 });
-
 db.connect((err) => {
     if (err) {
         console.error('Database connection failed:', err.message);
     } else {
-        console.log('Connected to railway db');
+        console.log('Connected to mysql');
     }
 });
 db.query(`
@@ -54,17 +53,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 5. TEST ROUTE
-app.get('/', (req, res) => {
-    res.send('Server is running');
-});
-
-// 6. CONTACT FORM API
-app.post('/api/contact', (req, res) => {
+// 5. CONTACT FORM API
+app.post("/contact", (req, res) => {
     console.log("Request received!");
-    console.log(req.body);
-    console.log("DATA:", req.body); // 👈 DEBUG (keep this for now)
-
+    console.log("body:", req.body);
     const { name, email, message } = req.body;
 
     const sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";

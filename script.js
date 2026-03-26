@@ -1,9 +1,9 @@
-console.log("JS is connected");
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  console.log("JS Loaded ✅");
+
   // ===============================
-  //  Mobile Navigation Toggle
+  // Mobile Navigation Toggle
   // ===============================
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Close menu when link clicked
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
       if (hamburger && navLinks) {
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  //  Smooth Scrolling
+  // Smooth Scrolling
   // ===============================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
@@ -46,10 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ==============================
-  // Contact Form → Backend (Render)
-  // ==============================
-
+  // ===============================
+  // Contact Form
+  // ===============================
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
@@ -66,8 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please fill all fields");
         return;
       }
+
       try {
-        const response = await fetch("https://portfolio-1-vs9s.onrender.com/api/contact", {
+        const response = await fetch("http://localhost:3000/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -75,24 +74,27 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify({ name, email, message })
         });
 
-        console.log("Response status:", response.status);
+        const text = await response.text();
 
-        const text = await response.text(); // 🔥 IMPORTANT
-        console.log("Raw response:", text);
+        console.log("Status:", response.status);
+        console.log("Response:", text);
 
-        alert("Message sent successfully! ✅");
+        if (response.ok) {
+          alert("Message sent successfully ✅");
+          contactForm.reset();
+        } else {
+          alert("Failed to send ❌");
+        }
 
-        contactForm.reset();
-
-      } catch (error) {
-        console.error("Fetch error:", error);
-        alert("Error sending message ❌");
+      } catch (err) {
+        console.error("Fetch error:", err);
+        alert("Server error ❌");
       }
     });
   }
 
   // ===============================
-  //  Scroll Reveal Animation
+  // Scroll Reveal Animation
   // ===============================
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
