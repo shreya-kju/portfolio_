@@ -21,18 +21,18 @@ console.log("env check skipped temporarily");
 
 // 4. DATABASE CONNECTION
 const db = mysql.createConnection({
-    host: DB_HOST,
-    user: DB_USER,
-    password: DB_PASSWORD, // put your MySQL password if any
-    database: DB_NAME,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD, // put your MySQL password if any
+    database: process.env.DB_NAME,
     port: 3306
 });
 
 db.connect((err) => {
     if (err) {
-        console.error('Database connection failed:', err);
+        console.error('Database connection failed:', err.message);
     } else {
-        console.log('Connected to MySQL');
+        console.log('Connected to railway db');
     }
 });
 db.query(`
