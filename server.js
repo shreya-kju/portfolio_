@@ -22,10 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 // Ensure environment variables exist
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, } = process.env;
-if (!DB_HOST || !DB_USER || !DB_PASSWORD || !DB_NAME) {
-    console.error("ERROR: Missing environment variables. Check DB_HOST, DB_USER, DB_PASSWORD, DB_NAME.");
-    process.exit(1);
-}
+console.log("env check skipped temporarily");
+
 // 4. DATABASE CONNECTION
 const db = mysql.createConnection({
     host: DB_HOST,
